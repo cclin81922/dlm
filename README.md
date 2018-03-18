@@ -1,5 +1,9 @@
 # dlm
 
+```
+bash test.sh
+```
+
 # TODO
 
 * redis version
