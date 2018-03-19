@@ -6,7 +6,9 @@ go get -u github.com/zieckey/etcdsync
 go get -u github.com/fzzy/radix/redis
 go get -u github.com/amyangfei/redlock-go
 
-bash test.sh
+bash test.sh nodlm
+bash test.sh etcd
+bash test.sh redis
 ```
 
 # Acknowledge 1
