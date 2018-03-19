@@ -21,28 +21,63 @@ bash test.sh consul
 Sample output of `export N=15; bash test.sh nodlm; bash test.sh etcd; bash test.sh redis; bash test.sh consul`
 
 ```
-/Users/cclin/go/src/github.com/cclin81922/dlm
-Expected 100
-Wait for 30 seconds
-Result: 89
-9595556da8e93a52648eb2a82ff6bd25be30d7ee1ea71d5a8f90948c546b8b14
-/Users/cclin/go/src/github.com/cclin81922/dlm
-Expected 100
-Wait for 30 seconds
-Result: 100
-etcd-dev
-aac03382b4b3745a537bb7f5974ba83c4df12acf9e99bb716573ae7e4a620306
-/Users/cclin/go/src/github.com/cclin81922/dlm
-Expected 100
-Wait for 30 seconds
-Result: 100
-redis-dev
-ea703efc6db66c1eee1ec4ce27da3a4b11f91bc508ba1972d3f12ff46776ed03
-/Users/cclin/go/src/github.com/cclin81922/dlm
-Expected 100
-Wait for 30 seconds
-Result: 100
-consul-dev
+
+***** [ case :: no dlm ] *****
+
+INFO |  Mon Mar 19 20:45:31 CST 2018 | Launching
+
+real	0m0.335s
+user	0m0.044s
+sys	0m0.055s
+
+INFO | Mon Mar 19 20:45:32 CST 2018 | Waiting
+
+real	0m14.370s
+user	0m0.138s
+sys	0m0.145s
+
+INFO | Mon Mar 19 20:45:46 CST 2018 | Finished
+
+Expect 15
+Result 12
+
+***** [ case :: with redis dlm ] *****
+
+INFO | Mon Mar 19 20:45:47 CST 2018 | Launching
+
+real	0m0.315s
+user	0m0.041s
+sys	0m0.042s
+
+INFO | Mon Mar 19 20:45:48 CST 2018 | Waiting
+
+real	0m14.370s
+user	0m0.141s
+sys	0m0.146s
+
+INFO | Mon Mar 19 20:46:02 CST 2018 | Finished
+
+Expect 15
+Result 15
+
+***** [ case :: with consul dlm ] *****
+
+INFO | Mon Mar 19 20:46:04 CST 2018 | Launching
+
+real	0m0.579s
+user	0m0.043s
+sys	0m0.045s
+
+INFO | Mon Mar 19 20:46:05 CST 2018 | Waiting
+
+real	0m17.490s
+user	0m0.177s
+sys	0m0.187s
+
+INFO | Mon Mar 19 20:46:22 CST 2018 | Finished
+
+Expect 15
+Result 15
 ```
 
 # Acknowledge 1
