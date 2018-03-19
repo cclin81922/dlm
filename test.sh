@@ -67,6 +67,7 @@ function redis() {
 function consul() {
     docker run \
       --rm -d \
+      -p 8500:8500 \
       -e CONSUL_BIND_INTERFACE=eth0 \
       --name consul-dev consul:1.0.6
 
