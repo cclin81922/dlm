@@ -18,7 +18,7 @@ bash test.sh consul
 
 ```
 
-Sample output of `bash test.sh nodlm; bash test.sh etcd; bash test.sh redis; bash test.sh consul`
+Sample output of `export N=15; bash test.sh nodlm; bash test.sh etcd; bash test.sh redis; bash test.sh consul`
 
 ```
 /Users/cclin/go/src/github.com/cclin81922/dlm
