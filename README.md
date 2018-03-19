@@ -22,82 +22,101 @@ docker pull zookeeper:3.4.11
 bash test.sh zookeeper
 ```
 
-Sample output of `export N=15; bash test.sh nodlm; bash test.sh etcd; bash test.sh redis; bash test.sh consul`
+Sample output of `export N=15; bash test.sh nodlm; bash test.sh etcd; bash test.sh redis; bash test.sh consul; bash test.sh zookeeper`
 
 ```
 
 ***** [ case :: no dlm ] *****
 
-INFO |  Mon Mar 19 20:51:05 CST 2018 | Launching
+INFO |  Mon Mar 19 22:43:53 CST 2018 | Launching
 
-real    0m0.397s
-user    0m0.047s
-sys 0m0.059s
+real    0m0.314s
+user    0m0.043s
+sys 0m0.044s
 
-INFO | Mon Mar 19 20:51:06 CST 2018 | Waiting
+INFO | Mon Mar 19 22:43:53 CST 2018 | Waiting
 
-real    0m13.562s
-user    0m0.152s
-sys 0m0.148s
+real    0m12.324s
+user    0m0.138s
+sys 0m0.132s
 
-INFO | Mon Mar 19 20:51:19 CST 2018 | Finished
+INFO | Mon Mar 19 22:44:06 CST 2018 | Finished
 
 Expect 15
 Result 14
 
 ***** [ case :: with etcd dlm ] *****
 
-INFO | Mon Mar 19 20:51:21 CST 2018 | Launching
+INFO | Mon Mar 19 22:44:07 CST 2018 | Launching
 
-real    0m0.306s
+real    0m0.440s
 user    0m0.042s
-sys 0m0.043s
+sys 0m0.042s
 
-INFO | Mon Mar 19 20:51:21 CST 2018 | Waiting
+INFO | Mon Mar 19 22:44:07 CST 2018 | Waiting
 
-real    0m24.787s
-user    0m0.226s
-sys 0m0.252s
+real    0m20.899s
+user    0m0.191s
+sys 0m0.205s
 
-INFO | Mon Mar 19 20:51:46 CST 2018 | Finished
+INFO | Mon Mar 19 22:44:28 CST 2018 | Finished
 
 Expect 15
 Result 15
 
 ***** [ case :: with redis dlm ] *****
 
-INFO | Mon Mar 19 20:51:48 CST 2018 | Launching
+INFO | Mon Mar 19 22:44:30 CST 2018 | Launching
 
-real    0m0.274s
-user    0m0.043s
-sys 0m0.043s
+real    0m0.294s
+user    0m0.042s
+sys 0m0.044s
 
-INFO | Mon Mar 19 20:51:49 CST 2018 | Waiting
+INFO | Mon Mar 19 22:44:30 CST 2018 | Waiting
 
-real    0m12.778s
-user    0m0.133s
-sys 0m0.124s
+real    0m13.322s
+user    0m0.146s
+sys 0m0.132s
 
-INFO | Mon Mar 19 20:52:01 CST 2018 | Finished
+INFO | Mon Mar 19 22:44:44 CST 2018 | Finished
 
 Expect 15
 Result 15
 
 ***** [ case :: with consul dlm ] *****
 
-INFO | Mon Mar 19 20:52:03 CST 2018 | Launching
+INFO | Mon Mar 19 22:44:45 CST 2018 | Launching
 
-real    0m0.352s
-user    0m0.044s
-sys 0m0.045s
+real    0m0.339s
+user    0m0.042s
+sys 0m0.042s
 
-INFO | Mon Mar 19 20:52:03 CST 2018 | Waiting
+INFO | Mon Mar 19 22:44:46 CST 2018 | Waiting
 
-real    0m14.702s
-user    0m0.146s
-sys 0m0.141s
+real    0m19.425s
+user    0m0.199s
+sys 0m0.179s
 
-INFO | Mon Mar 19 20:52:18 CST 2018 | Finished
+INFO | Mon Mar 19 22:45:05 CST 2018 | Finished
+
+Expect 15
+Result 15
+
+***** [ case :: with zookeeper dlm ] *****
+
+INFO | Mon Mar 19 22:45:07 CST 2018 | Launching
+
+real    0m0.320s
+user    0m0.042s
+sys 0m0.042s
+
+INFO | Mon Mar 19 22:45:07 CST 2018 | Waiting
+
+real    0m13.341s
+user    0m0.143s
+sys 0m0.132s
+
+INFO | Mon Mar 19 22:45:21 CST 2018 | Finished
 
 Expect 15
 Result 15
