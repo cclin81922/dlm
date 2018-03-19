@@ -6,6 +6,8 @@ go get -u github.com/zieckey/etcdsync
 go get -u github.com/fzzy/radix/redis
 go get -u github.com/amyangfei/redlock-go
 
+go get -u github.com/hashicorp/consul/api
+
 bash test.sh nodlm
 bash test.sh etcd
 bash test.sh redis
@@ -20,9 +22,9 @@ etcd version is powered by https://github.com/zieckey/etcdsync
 
 redis version is powered by https://github.com/amyangfei/redlock-go
 
-# TODO
+# Acknowledge 3
 
-* consul version
+consul version is powered by https://distributedbydefault.com/distributed-locks-with-consul-and-golang-c4eccc217dd5
 
 # Related resources
 

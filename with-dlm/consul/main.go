@@ -5,12 +5,17 @@ import (
 	"log"
 	"strconv"
 	"time"
+    "github.com/hashicorp/consul/api"
 )
 
 func main() {
 	time.Sleep(10000 * time.Millisecond)
 
     // DLM
+    client, _ := api.NewClient(&api.Config{Address: "127.0.0.1:8500"})
+    lock, _ := client.LockKey("webhook_receiver/1")
+    stopCh := make(chan struct{})
+    lock.Lock(stopCh)
 
     //
 	ov, _ := ioutil.ReadFile("../../data/counter.txt")
@@ -26,6 +31,7 @@ func main() {
 	ioutil.WriteFile("../../data/counter.txt", []byte(nv), 0644)
     //
 
+    lock.Unlock()
     // End of DLM
 
 	log.Println("End")
