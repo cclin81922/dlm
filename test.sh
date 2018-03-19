@@ -64,4 +64,24 @@ function redis() {
 
 # case 4 :: with-dlm :: consul
 
+function consul() {
+    docker run \
+      --rm -d \
+      -e CONSUL_BIND_INTERFACE=eth0 \
+      --name consul-dev consul:1.0.6
+
+    cp data/counter-init.txt data/counter.txt
+    cd with-dlm/consul
+    for i in `seq 1 100`; do screen -dmS process_$i go run main.go; done
+    cd -
+    
+    echo Expected 100
+    echo Wait for 30 seconds
+    sleep 30
+    echo -n "Result: "
+    cat data/counter.txt
+
+    docker stop consul-dev
+}
+
 $1

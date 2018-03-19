@@ -9,6 +9,7 @@ go get -u github.com/amyangfei/redlock-go
 bash test.sh nodlm
 bash test.sh etcd
 bash test.sh redis
+bash test.sh consul
 ```
 
 # Acknowledge 1
