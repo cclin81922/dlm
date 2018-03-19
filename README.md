@@ -1,4 +1,4 @@
-# dlm
+# Usage
 
 ```
 go get -u github.com/zieckey/etcdsync
