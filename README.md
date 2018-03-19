@@ -4,13 +4,16 @@
 bash test.sh nodlm
 
 go get -u github.com/zieckey/etcdsync
+docker pull quay.io/coreos/etcd:v3.0.17
 bash test.sh etcd
 
 go get -u github.com/fzzy/radix/redis
 go get -u github.com/amyangfei/redlock-go
+docker pull redis:4.0.8
 bash test.sh redis
 
 go get -u github.com/hashicorp/consul/api
+docker pull consul:1.0.6
 bash test.sh consul
 
 ```
