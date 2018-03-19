@@ -10,7 +10,7 @@ import (
 func main() {
 	time.Sleep(10000 * time.Millisecond)
 
-	ov, _ := ioutil.ReadFile("data/counter.txt")
+	ov, _ := ioutil.ReadFile("../data/counter.txt")
 
 	ov_int, _ := strconv.Atoi(string(ov))
 
@@ -20,7 +20,7 @@ func main() {
 
 	log.Printf("new value: %s\n", nv)
 
-	ioutil.WriteFile("data/counter.txt", []byte(nv), 0644)
+	ioutil.WriteFile("../data/counter.txt", []byte(nv), 0644)
 
 	log.Println("End")
 }
