@@ -3,7 +3,7 @@
 set -eu
 set -o pipefail
 
-N={$N:-10}
+N=${N:-10}
 
 function _wait() {
     while [ $(screen -ls | grep process | wc -l) -gt 0 ]
@@ -19,9 +19,8 @@ function _launch() {
 # [ case 1 :: without-dlm ]
 function nodlm() {
     echo
+    echo "***** [ case :: no dlm ] *****"
     echo
-    echo
-    echo "case :: no dlm"
 
     echo "INFO |  $(date) | Launching"
     cp data/counter-init.txt data/counter.txt
@@ -45,9 +44,8 @@ function nodlm() {
 # [ case 2 :: with-dlm :: etcd ]
 function etcd() {
     echo
+    echo "***** [ case :: with etcd dlm ] *****"
     echo
-    echo
-    echo "case :: with etcd dlm"
 
     docker run \
       --rm -d \
@@ -84,9 +82,8 @@ function etcd() {
 # [ case 3 :: with-dlm :: redis ]
 function redis() {
     echo
+    echo "***** [ case :: with redis dlm ] *****"
     echo
-    echo
-    echo "case :: with redis dlm"
 
     docker run \
       --rm -d \
@@ -118,9 +115,8 @@ function redis() {
 
 function consul() {
     echo
+    echo "***** [ case :: with consul dlm ] *****"
     echo
-    echo
-    echo "case :: with consul dlm"
 
     docker run \
       --rm -d \
