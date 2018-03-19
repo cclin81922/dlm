@@ -145,4 +145,39 @@ function consul() {
     docker stop consul-dev > /dev/null
 }
 
+# case 5 :: with-dlm :: zookeeper
+
+function zookeeper() {
+    echo
+    echo "***** [ case :: with zookeeper dlm ] *****"
+    echo
+
+    docker run \
+      --rm -d \
+      -p 2181:2181 \
+      -p 2888:2888 \
+      -p 3888:3888 \
+      --name zookeeper-dev zookeeper:3.4.11 > /dev/null
+
+    echo "INFO | $(date) | Launching"
+    cp data/counter-init.txt data/counter.txt
+    cd with-dlm/zookeeper
+    time _launch
+    cd - > /dev/null
+    echo
+
+    echo "INFO | $(date) | Waiting"    
+    time _wait
+    echo
+
+    echo "INFO | $(date) | Finished"
+    echo
+    echo Expect $N
+    echo -n "Result "
+    cat data/counter.txt
+    echo
+
+    docker stop zookeeper-dev > /dev/null
+}
+
 $1

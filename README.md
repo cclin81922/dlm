@@ -16,6 +16,10 @@ go get -u github.com/hashicorp/consul/api
 docker pull consul:1.0.6
 bash test.sh consul
 
+go get -u github.com/samuel/go-zookeeper/zk
+go get -u github.com/nladuo/go-zk-lock
+docker pull zookeeper:3.4.11
+bash test.sh zookeeper
 ```
 
 Sample output of `export N=15; bash test.sh nodlm; bash test.sh etcd; bash test.sh redis; bash test.sh consul`
