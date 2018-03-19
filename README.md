@@ -1,16 +1,16 @@
 # Usage
 
 ```
+bash test.sh nodlm
+
 go get -u github.com/zieckey/etcdsync
+bash test.sh etcd
 
 go get -u github.com/fzzy/radix/redis
 go get -u github.com/amyangfei/redlock-go
+bash test.sh redis
 
 go get -u github.com/hashicorp/consul/api
-
-bash test.sh nodlm
-bash test.sh etcd
-bash test.sh redis
 bash test.sh consul
 ```
 
