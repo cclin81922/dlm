@@ -5,19 +5,17 @@ import (
 	"log"
 	"strconv"
 	"time"
-    "github.com/bsm/redis-lock"
-    "github.com/go-redis/redis"
+    "github.com/amyangfei/redlock-go/redlock"
 )
 
 func main() {
 	time.Sleep(10000 * time.Millisecond)
 
     // DLM
-    client := redis.NewClient(&redis.Options{
-        Network:    "tcp",
-        Addr:       "127.0.0.1:6379",
+    lock, _ := redlock.NewRedLock([]string{
+        "tcp://127.0.0.1:6379",
     })
-    lock, _ := lock.Obtain(client, "lock.foo", nil)
+    lock.Lock("foo", 200)
 
     //
 	ov, _ := ioutil.ReadFile("../../data/counter.txt")
@@ -33,8 +31,7 @@ func main() {
 	ioutil.WriteFile("../../data/counter.txt", []byte(nv), 0644)
     //
 
-    lock.Unlock()
-    client.Close()
+    lock.UnLock()
     // End of DLM
 
 	log.Println("End")

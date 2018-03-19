@@ -3,8 +3,8 @@
 ```
 go get -u github.com/zieckey/etcdsync
 
-go get -u github.com/bsm/redis-lock
-go get -u github.com/go-redis/redis
+go get -u github.com/fzzy/radix/redis
+go get -u github.com/amyangfei/redlock-go
 
 bash test.sh
 ```
@@ -15,11 +15,7 @@ etcd version is powered by https://github.com/zieckey/etcdsync
 
 # Acknowledge 2
 
-redis version is powered by https://github.com/bsm/redis-lock
-
-# WIP
-
-* redis version
+redis version is powered by https://github.com/amyangfei/redlock-go
 
 # TODO
 
@@ -28,3 +24,5 @@ redis version is powered by https://github.com/bsm/redis-lock
 # Related resources
 
 * etcd version https://github.com/jagregory/locker
+* redis version https://github.com/go-redsync/redsync
+* redis version https://github.com/bsm/redis-lock (x)
