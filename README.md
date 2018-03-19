@@ -134,7 +134,7 @@ redis version is powered by https://github.com/amyangfei/redlock-go
 
 consul version is powered by https://distributedbydefault.com/distributed-locks-with-consul-and-golang-c4eccc217dd5
 
-# Acknowlede 4
+# Acknowledge 4
 
 zookeeper version is powered by https://github.com/nladuo/go-zk-lock
 
