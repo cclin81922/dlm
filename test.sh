@@ -3,19 +3,29 @@
 set -eu
 set -o pipefail
 
+function _wait() {
+    while [ $(screen -ls | grep process | wc -l) -gt 0 ]
+    do
+        sleep 1
+    done
+}
+
 # [ case 1 :: without-dlm ]
 function nodlm() {
+    echo "INFO | $(date)"
     cp data/counter-init.txt data/counter.txt
     cd without-dlm
     for i in `seq 1 100`; do screen -dmS process_$i go run main.go; done
     cd -
+    echo "INFO | $(date)"
     
     echo Expected 100
-    echo Wait for 30 seconds
-    sleep 30
+    echo Wait for seconds
+    _wait
     echo -n "Result: "
     cat data/counter.txt
     echo
+    echo "INFO | $(date)"
 }
 
 # [ case 2 :: with-dlm :: etcd ]
@@ -31,17 +41,20 @@ function etcd() {
       --advertise-client-urls http://127.0.0.1:2379 --listen-client-urls http://0.0.0.0:2379 \
       --initial-cluster node1=http://127.0.0.1:2380
     
+    echo "INFO | $(date)"
     cp data/counter-init.txt data/counter.txt
     cd with-dlm/etcd
     for i in `seq 1 100`; do screen -dmS process_$i go run main.go; done
     cd -
+    echo "INFO | $(date)"
     
     echo Expected 100
-    echo Wait for 30 seconds
-    sleep 30
+    echo Wait for seconds
+    _wait
     echo -n "Result: "
     cat data/counter.txt
     echo
+    echo "INFO | $(date)"
     
     docker stop etcd-dev
 }
@@ -53,17 +66,20 @@ function redis() {
       -p 6379:6379 \
       --name redis-dev redis:4.0.8
     
+    echo "INFO | $(date)"
     cp data/counter-init.txt data/counter.txt
     cd with-dlm/redis
     for i in `seq 1 100`; do screen -dmS process_$i go run main.go; done
     cd -
+    echo "INFO | $(date)"
     
     echo Expected 100
-    echo Wait for 30 seconds
-    sleep 30
+    echo Wait for seconds
+    _wait
     echo -n "Result: "
     cat data/counter.txt
     echo
+    echo "INFO | $(date)"
     
     docker stop redis-dev
 }
@@ -77,17 +93,20 @@ function consul() {
       -e CONSUL_BIND_INTERFACE=eth0 \
       --name consul-dev consul:1.0.6
 
+    echo "INFO | $(date)"
     cp data/counter-init.txt data/counter.txt
     cd with-dlm/consul
     for i in `seq 1 100`; do screen -dmS process_$i go run main.go; done
     cd -
+    echo "INFO | $(date)"
     
     echo Expected 100
-    echo Wait for 30 seconds
-    sleep 30
+    echo Wait for seconds
+    _wait
     echo -n "Result: "
     cat data/counter.txt
     echo
+    echo "INFO | $(date)"
 
     docker stop consul-dev
 }

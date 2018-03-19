@@ -42,7 +42,6 @@ Result: 100
 consul-dev
 ```
 
-
 # Acknowledge 1
 
 etcd version is powered by https://github.com/zieckey/etcdsync
@@ -57,6 +56,5 @@ consul version is powered by https://distributedbydefault.com/distributed-locks-
 
 # Related resources
 
-* etcd version https://github.com/jagregory/locker
-* redis version https://github.com/go-redsync/redsync
-* redis version https://github.com/bsm/redis-lock (x)
+* redlock https://redis.io/topics/distlock
+* against redlock https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html
