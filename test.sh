@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -eu
+set -o pipefail
+
 # [ case 1 :: without-dlm ]
 function nodlm() {
     cp data/counter-init.txt data/counter.txt
@@ -8,10 +11,11 @@ function nodlm() {
     cd -
     
     echo Expected 100
-    echo Wait for 15 seconds
-    sleep 15
+    echo Wait for 30 seconds
+    sleep 30
     echo -n "Result: "
     cat data/counter.txt
+    echo
 }
 
 # [ case 2 :: with-dlm :: etcd ]
@@ -37,6 +41,7 @@ function etcd() {
     sleep 30
     echo -n "Result: "
     cat data/counter.txt
+    echo
     
     docker stop etcd-dev
 }
@@ -58,6 +63,7 @@ function redis() {
     sleep 30
     echo -n "Result: "
     cat data/counter.txt
+    echo
     
     docker stop redis-dev
 }
@@ -81,6 +87,7 @@ function consul() {
     sleep 30
     echo -n "Result: "
     cat data/counter.txt
+    echo
 
     docker stop consul-dev
 }
